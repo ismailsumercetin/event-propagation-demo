@@ -1,18 +1,16 @@
-
-
 const one = document.querySelector("#\\31");
 const two = document.querySelector("#\\32");
 const three = document.querySelector("#\\33");
 const four = document.querySelector("#\\34");
 const five = document.querySelector("#\\35");
+const allDivElements = document.querySelectorAll("div");
 
 five.addEventListener(
   "mousedown",
   function () {
     setTimeout(() => {
       changeBg(this);
-    }, 1500)
-    
+    }, 750);
   },
   false
 );
@@ -22,19 +20,17 @@ four.addEventListener(
   function () {
     setTimeout(() => {
       changeBg(this);
-    }, 1750)
-    
+    }, 1000);
   },
   false
 );
 
 three.addEventListener(
   "mousedown",
-  function () {
+  function (event) {
     setTimeout(() => {
       changeBg(this);
-    }, 2000)
-    
+    }, 1250);
   },
   false
 );
@@ -44,28 +40,30 @@ two.addEventListener(
   function () {
     setTimeout(() => {
       changeBg(this);
-    }, 2250)
-    
+    }, 1500);
   },
   false
 );
 
 one.addEventListener(
   "mousedown",
-  function () {
+  function (event) {
+    allDivElements.forEach((div) => {
+      div.style.backgroundColor = "#fff";
+    });
+
+    console.log(event.target.id);
     setTimeout(() => {
       changeBg(this);
-    }, 2500)
-    
+    }, 1750);
   },
   false
 );
 
 function changeBg(t) {
-  document.querySelector("#\\3"+t.id).style.backgroundColor = "red";
-  
+  const element = document.querySelector("#\\3" + t.id);
+  element.style.backgroundColor = "lightblue";
 }
-
 
 // Please make each div clickable programmatically, considering UX
 // 1 - Log the id of the clicked div.
